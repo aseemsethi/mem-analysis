@@ -1,0 +1,4 @@
+mem
+core*
+*.o
+dump1g

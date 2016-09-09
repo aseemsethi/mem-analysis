@@ -40,8 +40,9 @@ get_pml4e (addr_t va, addr_t kpgd, addr_t *pml4e_address, addr_t *pml4e_value) {
 	// Basically, location = Mask 12 LSB of KPGD  + 9 MSB of vaddr (offset)
 	*pml4e_address = (kpgd & BIT_MASK(12,51)) | get_pml4_index(va);
 	// Read 4 bytes from *pml4e_address. This is the pml4e_value
-	// This read is just be reading phy mem
-	// read_32_pa(*pgd_location, &value);
+	// This read is just be reading phy mem, vmi_read_64_pa(), which eventutally
+	// calls vm_read() with the CR3 value set to 0, so that the main mem, which
+	// is file in our case, is read directly as physical mem.
 	paddr = *pml4e_address;
 	tmp = NULL;
     if (tmp != fseek(arch.dump, paddr, SEEK_SET)) {
@@ -62,23 +63,36 @@ get_pml4e (addr_t va, addr_t kpgd, addr_t *pml4e_address, addr_t *pml4e_value) {
 /*           PGD     PUD     PMD     PTE  -> PAGE
  * i386	    22-31	 	 	12-21
  * i386pae  30-31	21-29	12-20
- * x86-64	39-46	30-38	21-29	12-20
- * Taken from v2p_ia32e in libvmi arch/amd64.c
+ *
+ * x86-64 (our example)
+ * Sign Extend Page Offset (63-48),
+ * Page Map Level 4 Table Offset (PML4) (39-47)
+ * Page Directory Pointer Offset (30-38)
+ * Page Directory Offset (21-29)
+ * Page Table Offset (12-20)
+ * Page Offset (0-11)
+ *
+ * Code Taken from v2p_ia32e in libvmi arch/amd64.c
  */
 int pagetable_lookup (addr_t kpgd, addr_t va, addr_t *phys_addr) {
 	page_info_t	*page;
 	addr_t		paddr;
 	int			ret;
 
+	// TBD: Checking for ENTRY_PRESENT is not being done to keep the code 
+	// clearer. 
 	printf("pagetable_lookup for va: 0x%.16x\n", va);
 	ret = get_pml4e(va, kpgd, &arch.pml4e_location, &arch.pml4e_value);
 	if (ret == FAILURE) return ret;
-	/*
-    get_pte(va, arch.pgd_value, &arch.pte_location, &arch.pte_value);
-    paddr = get_paddr(va, &arch.pte_value);
-	*phys_addr = paddr;
-	printf("pagetable_lookup for va: 0x%.16x, is 0x%.16x\n", va, paddr);
-	*/
+/*
+    ret = get_pdpte_ia32e(va, arch.pml4e_value,
+							&arch.pdpte_location, &arch.pdpte_value);
+	ret = get_pde_ia32e(va, arch.pdpte_value,
+							&arch.pgd_location, &arch.pgd_value);
+	ret = get_pte_ia32e(va, arch.pgd_value,
+							&arch.pte_location, &arch.pte_value);
+    paddr = get_paddr_ia32e(va, arch.pte_value);
+*/
 }
 
 int loadPTValues () {
