@@ -1,0 +1,1 @@
+This is an attempt to understand LibVMI, by writing some parts of it myself to get a basic understanding of Page Table and how one can read a Memory Dump from /dev/fmem for just 1 architecture, i.e. X86-64.
