@@ -23,6 +23,28 @@ arch_t arch;
 addr_t get_pml4_index (addr_t vaddr) {
     return (vaddr & BIT_MASK(39,47)) >> 36;
 }
+addr_t get_pdpt_index_ia32e (addr_t vaddr) {
+    return (vaddr & BIT_MASK(30,38)) >> 27;
+}
+
+
+int memRead (addr_t *address, addr_t *value) {
+	addr_t			tmp = 0;
+	addr_t			 va_temp;
+	addr_t			*buff;
+
+	buff = malloc(4);
+    if (tmp != fseek(arch.dump, *address, SEEK_SET)) {
+		printf("fseek returned %ld, vs %ld\n", tmp, *address);
+		perror("\n Error in get_pgd seek");
+		return FAILURE;
+    }
+	if (8 != fread(buff, 1, 8, arch.dump)) {
+		perror("\n Error in get_pgd read");
+		return FAILURE;
+	}
+	*value = *buff;
+}
 
 /*
  * Level 0 is PML4E(Page-Map Level-4 Offset)
@@ -31,34 +53,32 @@ addr_t get_pml4_index (addr_t vaddr) {
  * Level 3 is PTE (Page Table Offset)
  */
 int 
-get_pml4e (addr_t va, addr_t kpgd, addr_t *pml4e_address, addr_t *pml4e_value) {
-	addr_t			paddr, tmp, va_temp;
-	addr_t			*buff;
-	buff = malloc(4);
+get_pml4e_ia32e (addr_t va, addr_t kpgd, 
+				addr_t *pml4e_address, addr_t *pml4e_value) {
 
     *pml4e_value = 0;
 	// Basically, location = Mask 12 LSB of KPGD  + 9 MSB of vaddr (offset)
 	*pml4e_address = (kpgd & BIT_MASK(12,51)) | get_pml4_index(va);
-	// Read 4 bytes from *pml4e_address. This is the pml4e_value
-	// This read is just be reading phy mem, vmi_read_64_pa(), which eventutally
+	// Read 8 bytes from *pml4e_address. This is the pml4e_value
+	// This read is by reading phy mem, vmi_read_64_pa(), which eventutally
 	// calls vm_read() with the CR3 value set to 0, so that the main mem, which
 	// is file in our case, is read directly as physical mem.
-	paddr = *pml4e_address;
-	tmp = NULL;
-    if (tmp != fseek(arch.dump, paddr, SEEK_SET)) {
-		printf("fseek returned %ld, vs %ld\n", tmp, paddr);
-		perror("\n Error in get_pgd seek");
-		return FAILURE;
-    }
-	if (8 != fread(buff, 1, 8, arch.dump)) {
-		perror("\n Error in get_pgd read");
-		return FAILURE;
-	}
-	*pml4e_value = *buff;
-	printf("PGD Location:0x%.16x, Value:0x%.16x\n",
+	memRead(pml4e_address, pml4e_value);
+	printf("PML4E Address:0x%.16x, Value:0x%.16x\n",
 			*pml4e_address, *pml4e_value);
 	return SUCCESS;
 }
+
+int get_pdpte_ia32e (addr_t vaddr, addr_t pml4e,
+					addr_t *pdpte_address, addr_t *pdpte_value) {
+    *pdpte_value = 0;
+    *pdpte_address = (pml4e & BIT_MASK(12,51))|get_pdpt_index_ia32e(vaddr);
+	memRead(pdpte_address, pdpte_value);
+	printf("PDPTE Address:0x%.16x, Value:0x%.16x\n",
+			*pdpte_address, *pdpte_value);
+    return SUCCESS;
+}
+
 
 /*           PGD     PUD     PMD     PTE  -> PAGE
  * i386	    22-31	 	 	12-21
@@ -82,16 +102,20 @@ int pagetable_lookup (addr_t kpgd, addr_t va, addr_t *phys_addr) {
 	// TBD: Checking for ENTRY_PRESENT is not being done to keep the code 
 	// clearer. 
 	printf("pagetable_lookup for va: 0x%.16x\n", va);
-	ret = get_pml4e(va, kpgd, &arch.pml4e_location, &arch.pml4e_value);
+	ret = get_pml4e_ia32e   (va, kpgd, 
+							&arch.pml4e_location, &arch.pml4e_value);
+	if (ret == FAILURE) return ret;
+    ret = get_pdpte_ia32e   (va, arch.pml4e_value,
+							&arch.pdpte_location, &arch.pdpte_value);
 	if (ret == FAILURE) return ret;
 /*
-    ret = get_pdpte_ia32e(va, arch.pml4e_value,
-							&arch.pdpte_location, &arch.pdpte_value);
-	ret = get_pde_ia32e(va, arch.pdpte_value,
+	ret = get_pde_ia32e     (va, arch.pdpte_value,
 							&arch.pgd_location, &arch.pgd_value);
-	ret = get_pte_ia32e(va, arch.pgd_value,
+	if (ret == FAILURE) return ret;
+	ret = get_pte_ia32e     (va, arch.pgd_value,
 							&arch.pte_location, &arch.pte_value);
-    paddr = get_paddr_ia32e(va, arch.pte_value);
+	if (ret == FAILURE) return ret;
+    paddr = get_paddr_ia32e (va, arch.pte_value);
 */
 }
 

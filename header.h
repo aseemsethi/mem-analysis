@@ -1,3 +1,4 @@
+#include <stdlib.h>
 typedef unsigned long addr_t;
 
 #define SUCCESS 0
