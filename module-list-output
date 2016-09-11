@@ -1,0 +1,1251 @@
+LibVMI Version 0.11.0
+--failed to find kvm domain
+--found file
+LibVMI Mode 8
+--completed driver init.
+**set image_type = dump1g
+**set allocated_ram_size = 4b000000, max_physical_address = 0x4b000000
+--looking for config file at /home/asethi/etc/libvmi.conf
+--looking for config file at /etc/libvmi.conf
+**Using config file at /etc/libvmi.conf
+**set os_type to unknown.
+Got phys_startup_64 and startup_64
+--got kernel boundary (0xffffffff80000000).
+--got vaddr for init_level4_pgt (0xffffffff81a85000).
+
+ASEEM AMD64amd64--PTLookup: lookup vaddr = 0xffffffff81000000
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache set 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache set 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache set 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b040, pde_value= 0x00000000010001e1
+--PTLookup: 2MB page
+--PTLookup: paddr = 0x0000000001000000
+--V2P cache set 0xffffffff81000000 -- 0x0000000001000000 (0x0000000001a85000/0xffffffff81000000)
+**set vmi->kpgd (0x0000000001a85000).
+--SYM cache set modules -- 0xffffffff81aa8090
+amd64--PTLookup: lookup vaddr = 0xffffffff81aa8090
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b068, pde_value= 0x0000000001a001e3
+--PTLookup: 2MB page
+--PTLookup: paddr = 0x0000000001aa8090
+--V2P cache set 0xffffffff81aa8090 -- 0x0000000001aa8090 (0x0000000001a85000/0xffffffff81aa8000)
+--MEMORY cache set 0x1aa8000
+amd64--PTLookup: lookup vaddr = 0xffffffffa00bd768
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache set 0x379b6000
+--PTLookup: pte_address = 0x00000000379b65e8, pte_value = 0x000000003adeb163
+--PTLookup: paddr = 0x000000003adeb768
+--V2P cache set 0xffffffffa00bd768 -- 0x000000003adeb768 (0x0000000001a85000/0xffffffffa00bd000)
+--MEMORY cache set 0x3adeb000
+--V2P cache hit 0xffffffffa00bd778 -- 0x000000003adeb778 (0x0000000001a85000/0xffffffffa00bd000)
+--MEMORY cache hit 0x3adeb000
+--MEMORY cache hit 0x3adeb000
+fmem
+amd64--PTLookup: lookup vaddr = 0xffffffffa00752a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b63a8, pte_value = 0x000000000a0d6163
+--PTLookup: paddr = 0x000000000a0d62a8
+--V2P cache set 0xffffffffa00752a8 -- 0x000000000a0d62a8 (0x0000000001a85000/0xffffffffa0075000)
+--MEMORY cache set 0xa0d6000
+--V2P cache hit 0xffffffffa00752b8 -- 0x000000000a0d62b8 (0x0000000001a85000/0xffffffffa0075000)
+--MEMORY cache hit 0xa0d6000
+--MEMORY cache hit 0xa0d6000
+findoffsets
+amd64--PTLookup: lookup vaddr = 0xffffffffa0345928
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache set 0x3b902000
+--PTLookup: pte_address = 0x000000003b902a28, pte_value = 0x000000003c99a163
+--PTLookup: paddr = 0x000000003c99a928
+--V2P cache set 0xffffffffa0345928 -- 0x000000003c99a928 (0x0000000001a85000/0xffffffffa0345000)
+--MEMORY cache set 0x3c99a000
+--V2P cache hit 0xffffffffa0345938 -- 0x000000003c99a938 (0x0000000001a85000/0xffffffffa0345000)
+--MEMORY cache hit 0x3c99a000
+--MEMORY cache hit 0x3c99a000
+fuse
+amd64--PTLookup: lookup vaddr = 0xffffffffa0066108
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6330, pte_value = 0x000000003b839163
+--PTLookup: paddr = 0x000000003b839108
+--V2P cache set 0xffffffffa0066108 -- 0x000000003b839108 (0x0000000001a85000/0xffffffffa0066000)
+--MEMORY cache set 0x3b839000
+--V2P cache hit 0xffffffffa0066118 -- 0x000000003b839118 (0x0000000001a85000/0xffffffffa0066000)
+--MEMORY cache hit 0x3b839000
+--MEMORY cache hit 0x3b839000
+xt_MARK
+amd64--PTLookup: lookup vaddr = 0xffffffffa002a108
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6150, pte_value = 0x000000003d918163
+--PTLookup: paddr = 0x000000003d918108
+--V2P cache set 0xffffffffa002a108 -- 0x000000003d918108 (0x0000000001a85000/0xffffffffa002a000)
+--MEMORY cache set 0x3d918000
+--V2P cache hit 0xffffffffa002a118 -- 0x000000003d918118 (0x0000000001a85000/0xffffffffa002a000)
+--MEMORY cache hit 0x3d918000
+--MEMORY cache hit 0x3d918000
+xt_mark
+amd64--PTLookup: lookup vaddr = 0xffffffffa003f6a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b61f8, pte_value = 0x000000003e36a163
+--PTLookup: paddr = 0x000000003e36a6a8
+--V2P cache set 0xffffffffa003f6a8 -- 0x000000003e36a6a8 (0x0000000001a85000/0xffffffffa003f000)
+--MEMORY cache set 0x3e36a000
+--V2P cache hit 0xffffffffa003f6b8 -- 0x000000003e36a6b8 (0x0000000001a85000/0xffffffffa003f000)
+--MEMORY cache hit 0x3e36a000
+--MEMORY cache hit 0x3e36a000
+ip6table_filter
+amd64--PTLookup: lookup vaddr = 0xffffffffa00bad08
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b65d0, pte_value = 0x000000003e369163
+--PTLookup: paddr = 0x000000003e369d08
+--V2P cache set 0xffffffffa00bad08 -- 0x000000003e369d08 (0x0000000001a85000/0xffffffffa00ba000)
+--MEMORY cache set 0x3e369000
+--V2P cache hit 0xffffffffa00bad18 -- 0x000000003e369d18 (0x0000000001a85000/0xffffffffa00ba000)
+--MEMORY cache hit 0x3e369000
+--MEMORY cache hit 0x3e369000
+ip6_tables
+amd64--PTLookup: lookup vaddr = 0xffffffffa02bd388
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b9025e8, pte_value = 0x000000003d4fa163
+--PTLookup: paddr = 0x000000003d4fa388
+--V2P cache set 0xffffffffa02bd388 -- 0x000000003d4fa388 (0x0000000001a85000/0xffffffffa02bd000)
+--MEMORY cache set 0x3d4fa000
+--V2P cache hit 0xffffffffa02bd398 -- 0x000000003d4fa398 (0x0000000001a85000/0xffffffffa02bd000)
+--MEMORY cache hit 0x3d4fa000
+--MEMORY cache hit 0x3d4fa000
+ebtable_nat
+amd64--PTLookup: lookup vaddr = 0xffffffffa0334fa8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b9029a0, pte_value = 0x000000003e36c163
+--PTLookup: paddr = 0x000000003e36cfa8
+--V2P cache set 0xffffffffa0334fa8 -- 0x000000003e36cfa8 (0x0000000001a85000/0xffffffffa0334000)
+--MEMORY cache set 0x3e36c000
+--V2P cache hit 0xffffffffa0334fb8 -- 0x000000003e36cfb8 (0x0000000001a85000/0xffffffffa0334000)
+--MEMORY cache hit 0x3e36c000
+--MEMORY cache hit 0x3e36c000
+ebtables
+amd64--PTLookup: lookup vaddr = 0xffffffffa028a508
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902450, pte_value = 0x000000003db9a163
+--PTLookup: paddr = 0x000000003db9a508
+--V2P cache set 0xffffffffa028a508 -- 0x000000003db9a508 (0x0000000001a85000/0xffffffffa028a000)
+--MEMORY cache set 0x3db9a000
+--V2P cache hit 0xffffffffa028a518 -- 0x000000003db9a518 (0x0000000001a85000/0xffffffffa028a000)
+--MEMORY cache hit 0x3db9a000
+--MEMORY cache hit 0x3db9a000
+ipt_MASQUERADE
+amd64--PTLookup: lookup vaddr = 0xffffffffa0207128
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902038, pte_value = 0x000000003d51b163
+--PTLookup: paddr = 0x000000003d51b128
+--V2P cache set 0xffffffffa0207128 -- 0x000000003d51b128 (0x0000000001a85000/0xffffffffa0207000)
+--MEMORY cache set 0x3d51b000
+--V2P cache hit 0xffffffffa0207138 -- 0x000000003d51b138 (0x0000000001a85000/0xffffffffa0207000)
+--MEMORY cache hit 0x3d51b000
+--MEMORY cache hit 0x3d51b000
+iptable_nat
+amd64--PTLookup: lookup vaddr = 0xffffffffa0286fa8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902430, pte_value = 0x000000003e357163
+--PTLookup: paddr = 0x000000003e357fa8
+--V2P cache set 0xffffffffa0286fa8 -- 0x000000003e357fa8 (0x0000000001a85000/0xffffffffa0286000)
+--MEMORY cache set 0x3e357000
+--V2P cache hit 0xffffffffa0286fb8 -- 0x000000003e357fb8 (0x0000000001a85000/0xffffffffa0286000)
+--MEMORY cache hit 0x3e357000
+--MEMORY cache hit 0x3e357000
+nf_nat
+amd64--PTLookup: lookup vaddr = 0xffffffffa0219968
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b9020c8, pte_value = 0x000000003e32b163
+--PTLookup: paddr = 0x000000003e32b968
+--V2P cache set 0xffffffffa0219968 -- 0x000000003e32b968 (0x0000000001a85000/0xffffffffa0219000)
+--MEMORY cache set 0x3e32b000
+--V2P cache hit 0xffffffffa0219978 -- 0x000000003e32b978 (0x0000000001a85000/0xffffffffa0219000)
+--MEMORY cache hit 0x3e32b000
+--MEMORY cache hit 0x3e32b000
+nf_conntrack_ipv4
+amd64--PTLookup: lookup vaddr = 0xffffffffa01a21c8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6d10, pte_value = 0x000000003e255163
+--PTLookup: paddr = 0x000000003e2551c8
+--V2P cache set 0xffffffffa01a21c8 -- 0x000000003e2551c8 (0x0000000001a85000/0xffffffffa01a2000)
+--MEMORY cache set 0x3e255000
+--V2P cache hit 0xffffffffa01a21d8 -- 0x000000003e2551d8 (0x0000000001a85000/0xffffffffa01a2000)
+--MEMORY cache hit 0x3e255000
+--MEMORY cache hit 0x3e255000
+nf_defrag_ipv4
+amd64--PTLookup: lookup vaddr = 0xffffffffa0140268
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6a00, pte_value = 0x000000003e246163
+--PTLookup: paddr = 0x000000003e246268
+--V2P cache set 0xffffffffa0140268 -- 0x000000003e246268 (0x0000000001a85000/0xffffffffa0140000)
+--MEMORY cache set 0x3e246000
+--V2P cache hit 0xffffffffa0140278 -- 0x000000003e246278 (0x0000000001a85000/0xffffffffa0140000)
+--MEMORY cache hit 0x3e246000
+--MEMORY cache hit 0x3e246000
+xt_state
+amd64--PTLookup: lookup vaddr = 0xffffffffa0329448
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902948, pte_value = 0x0000000037b8d163
+--PTLookup: paddr = 0x0000000037b8d448
+--V2P cache set 0xffffffffa0329448 -- 0x0000000037b8d448 (0x0000000001a85000/0xffffffffa0329000)
+--MEMORY cache set 0x37b8d000
+--V2P cache hit 0xffffffffa0329458 -- 0x0000000037b8d458 (0x0000000001a85000/0xffffffffa0329000)
+--MEMORY cache hit 0x37b8d000
+--MEMORY cache hit 0x37b8d000
+nf_conntrack
+amd64--PTLookup: lookup vaddr = 0xffffffffa00835e8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6418, pte_value = 0x000000003e276163
+--PTLookup: paddr = 0x000000003e2765e8
+--V2P cache set 0xffffffffa00835e8 -- 0x000000003e2765e8 (0x0000000001a85000/0xffffffffa0083000)
+--MEMORY cache set 0x3e276000
+--V2P cache hit 0xffffffffa00835f8 -- 0x000000003e2765f8 (0x0000000001a85000/0xffffffffa0083000)
+--MEMORY cache hit 0x3e276000
+--MEMORY cache hit 0x3e276000
+ipt_REJECT
+amd64--PTLookup: lookup vaddr = 0xffffffffa00771c8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b63b8, pte_value = 0x000000003e31b163
+--PTLookup: paddr = 0x000000003e31b1c8
+--V2P cache set 0xffffffffa00771c8 -- 0x000000003e31b1c8 (0x0000000001a85000/0xffffffffa0077000)
+--MEMORY cache set 0x3e31b000
+--V2P cache hit 0xffffffffa00771d8 -- 0x000000003e31b1d8 (0x0000000001a85000/0xffffffffa0077000)
+--MEMORY cache hit 0x3e31b000
+--MEMORY cache hit 0x3e31b000
+xt_CHECKSUM
+amd64--PTLookup: lookup vaddr = 0xffffffffa005d868
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b62e8, pte_value = 0x000000003e270163
+--PTLookup: paddr = 0x000000003e270868
+--V2P cache set 0xffffffffa005d868 -- 0x000000003e270868 (0x0000000001a85000/0xffffffffa005d000)
+--MEMORY cache set 0x3e270000
+--V2P cache hit 0xffffffffa005d878 -- 0x000000003e270878 (0x0000000001a85000/0xffffffffa005d000)
+--MEMORY cache hit 0x3e270000
+--MEMORY cache hit 0x3e270000
+iptable_mangle
+amd64--PTLookup: lookup vaddr = 0xffffffffa0043628
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6218, pte_value = 0x000000003b89f163
+--PTLookup: paddr = 0x000000003b89f628
+--V2P cache set 0xffffffffa0043628 -- 0x000000003b89f628 (0x0000000001a85000/0xffffffffa0043000)
+--MEMORY cache set 0x3b89f000
+--V2P cache hit 0xffffffffa0043638 -- 0x000000003b89f638 (0x0000000001a85000/0xffffffffa0043000)
+--MEMORY cache hit 0x3b89f000
+--MEMORY cache hit 0x3b89f000
+iptable_filter
+amd64--PTLookup: lookup vaddr = 0xffffffffa0058aa8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b62c0, pte_value = 0x000000003b451163
+--PTLookup: paddr = 0x000000003b451aa8
+--V2P cache set 0xffffffffa0058aa8 -- 0x000000003b451aa8 (0x0000000001a85000/0xffffffffa0058000)
+--MEMORY cache set 0x3b451000
+--V2P cache hit 0xffffffffa0058ab8 -- 0x000000003b451ab8 (0x0000000001a85000/0xffffffffa0058000)
+--MEMORY cache hit 0x3b451000
+--MEMORY cache hit 0x3b451000
+ip_tables
+amd64--PTLookup: lookup vaddr = 0xffffffffa01f62a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6fb0, pte_value = 0x000000003c447163
+--PTLookup: paddr = 0x000000003c4472a8
+--V2P cache set 0xffffffffa01f62a8 -- 0x000000003c4472a8 (0x0000000001a85000/0xffffffffa01f6000)
+--MEMORY cache set 0x3c447000
+--V2P cache hit 0xffffffffa01f62b8 -- 0x000000003c4472b8 (0x0000000001a85000/0xffffffffa01f6000)
+--MEMORY cache hit 0x3c447000
+--MEMORY cache hit 0x3c447000
+bridge
+amd64--PTLookup: lookup vaddr = 0xffffffffa003d3a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b61e8, pte_value = 0x000000003ad8e163
+--PTLookup: paddr = 0x000000003ad8e3a8
+--V2P cache set 0xffffffffa003d3a8 -- 0x000000003ad8e3a8 (0x0000000001a85000/0xffffffffa003d000)
+--MEMORY cache set 0x3ad8e000
+--V2P cache hit 0xffffffffa003d3b8 -- 0x000000003ad8e3b8 (0x0000000001a85000/0xffffffffa003d000)
+--MEMORY cache hit 0x3ad8e000
+--MEMORY cache hit 0x3ad8e000
+stp
+amd64--PTLookup: lookup vaddr = 0xffffffffa001aa68
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b60d0, pte_value = 0x000000003ad8b163
+--PTLookup: paddr = 0x000000003ad8ba68
+--V2P cache set 0xffffffffa001aa68 -- 0x000000003ad8ba68 (0x0000000001a85000/0xffffffffa001a000)
+--MEMORY cache set 0x3ad8b000
+--V2P cache hit 0xffffffffa001aa78 -- 0x000000003ad8ba78 (0x0000000001a85000/0xffffffffa001a000)
+--MEMORY cache hit 0x3ad8b000
+--MEMORY cache hit 0x3ad8b000
+llc
+amd64--PTLookup: lookup vaddr = 0xffffffffa0364088
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902b20, pte_value = 0x000000003e7f1163
+--PTLookup: paddr = 0x000000003e7f1088
+--V2P cache set 0xffffffffa0364088 -- 0x000000003e7f1088 (0x0000000001a85000/0xffffffffa0364000)
+--MEMORY cache set 0x3e7f1000
+--V2P cache hit 0xffffffffa0364098 -- 0x000000003e7f1098 (0x0000000001a85000/0xffffffffa0364000)
+--MEMORY cache hit 0x3e7f1000
+--MEMORY cache hit 0x3e7f1000
+vboxsf
+amd64--PTLookup: lookup vaddr = 0xffffffffa03577c8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902ab8, pte_value = 0x000000003c92b163
+--PTLookup: paddr = 0x000000003c92b7c8
+--V2P cache set 0xffffffffa03577c8 -- 0x000000003c92b7c8 (0x0000000001a85000/0xffffffffa0357000)
+--MEMORY cache set 0x3c92b000
+--V2P cache hit 0xffffffffa03577d8 -- 0x000000003c92b7d8 (0x0000000001a85000/0xffffffffa0357000)
+--MEMORY cache hit 0x3c92b000
+--MEMORY cache hit 0x3c92b000
+autofs4
+amd64--PTLookup: lookup vaddr = 0xffffffffa030f028
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902878, pte_value = 0x000000003b918163
+--PTLookup: paddr = 0x000000003b918028
+--V2P cache set 0xffffffffa030f028 -- 0x000000003b918028 (0x0000000001a85000/0xffffffffa030f000)
+--MEMORY cache set 0x3b918000
+--V2P cache hit 0xffffffffa030f038 -- 0x000000003b918038 (0x0000000001a85000/0xffffffffa030f000)
+--MEMORY cache hit 0x3b918000
+--MEMORY cache hit 0x3b918000
+ipv6
+amd64--PTLookup: lookup vaddr = 0xffffffffa02c6108
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902630, pte_value = 0x0000000037b36163
+--PTLookup: paddr = 0x0000000037b36108
+--V2P cache set 0xffffffffa02c6108 -- 0x0000000037b36108 (0x0000000001a85000/0xffffffffa02c6000)
+--MEMORY cache set 0x37b36000
+--V2P cache hit 0xffffffffa02c6118 -- 0x0000000037b36118 (0x0000000001a85000/0xffffffffa02c6000)
+--MEMORY cache hit 0x37b36000
+--MEMORY cache hit 0x37b36000
+vhost_net
+amd64--PTLookup: lookup vaddr = 0xffffffffa02bada8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b9025d0, pte_value = 0x0000000037d84163
+--PTLookup: paddr = 0x0000000037d84da8
+--V2P cache set 0xffffffffa02bada8 -- 0x0000000037d84da8 (0x0000000001a85000/0xffffffffa02ba000)
+--MEMORY cache set 0x37d84000
+--V2P cache hit 0xffffffffa02badb8 -- 0x0000000037d84db8 (0x0000000001a85000/0xffffffffa02ba000)
+--MEMORY cache hit 0x37d84000
+--MEMORY cache hit 0x37d84000
+macvtap
+amd64--PTLookup: lookup vaddr = 0xffffffffa02b3aa8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902598, pte_value = 0x0000000037a5a163
+--PTLookup: paddr = 0x0000000037a5aaa8
+--V2P cache set 0xffffffffa02b3aa8 -- 0x0000000037a5aaa8 (0x0000000001a85000/0xffffffffa02b3000)
+--MEMORY cache set 0x37a5a000
+--V2P cache hit 0xffffffffa02b3ab8 -- 0x0000000037a5aab8 (0x0000000001a85000/0xffffffffa02b3000)
+--MEMORY cache hit 0x37a5a000
+--MEMORY cache hit 0x37a5a000
+macvlan
+amd64--PTLookup: lookup vaddr = 0xffffffffa02ac7a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902560, pte_value = 0x0000000037d41163
+--PTLookup: paddr = 0x0000000037d417a8
+--V2P cache set 0xffffffffa02ac7a8 -- 0x0000000037d417a8 (0x0000000001a85000/0xffffffffa02ac000)
+--MEMORY cache set 0x37d41000
+--V2P cache hit 0xffffffffa02ac7b8 -- 0x0000000037d417b8 (0x0000000001a85000/0xffffffffa02ac000)
+--MEMORY cache hit 0x37d41000
+--MEMORY cache hit 0x37d41000
+tun
+amd64--PTLookup: lookup vaddr = 0xffffffffa009d828
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b64e8, pte_value = 0x000000003d590163
+--PTLookup: paddr = 0x000000003d590828
+--V2P cache set 0xffffffffa009d828 -- 0x000000003d590828 (0x0000000001a85000/0xffffffffa009d000)
+--MEMORY cache set 0x3d590000
+--V2P cache hit 0xffffffffa009d838 -- 0x000000003d590838 (0x0000000001a85000/0xffffffffa009d000)
+--MEMORY cache hit 0x3d590000
+--MEMORY cache hit 0x3d590000
+uinput
+amd64--PTLookup: lookup vaddr = 0xffffffffa028ea68
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902470, pte_value = 0x000000003cc73163
+--PTLookup: paddr = 0x000000003cc73a68
+--V2P cache set 0xffffffffa028ea68 -- 0x000000003cc73a68 (0x0000000001a85000/0xffffffffa028e000)
+--MEMORY cache set 0x3cc73000
+--V2P cache hit 0xffffffffa028ea78 -- 0x000000003cc73a78 (0x0000000001a85000/0xffffffffa028e000)
+--MEMORY cache hit 0x3cc73000
+--MEMORY cache hit 0x3cc73000
+microcode
+amd64--PTLookup: lookup vaddr = 0xffffffffa027c0c8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b9023e0, pte_value = 0x000000003b313163
+--PTLookup: paddr = 0x000000003b3130c8
+--V2P cache set 0xffffffffa027c0c8 -- 0x000000003b3130c8 (0x0000000001a85000/0xffffffffa027c000)
+--MEMORY cache set 0x3b313000
+--V2P cache hit 0xffffffffa027c0d8 -- 0x000000003b3130d8 (0x0000000001a85000/0xffffffffa027c000)
+--MEMORY cache hit 0x3b313000
+--MEMORY cache hit 0x3b313000
+e1000
+amd64--PTLookup: lookup vaddr = 0xffffffffa0255268
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b9022a8, pte_value = 0x0000000037d83163
+--PTLookup: paddr = 0x0000000037d83268
+--V2P cache set 0xffffffffa0255268 -- 0x0000000037d83268 (0x0000000001a85000/0xffffffffa0255000)
+--MEMORY cache set 0x37d83000
+--V2P cache hit 0xffffffffa0255278 -- 0x0000000037d83278 (0x0000000001a85000/0xffffffffa0255000)
+--MEMORY cache hit 0x37d83000
+--MEMORY cache hit 0x37d83000
+sg
+amd64--PTLookup: lookup vaddr = 0xffffffffa0133968
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6998, pte_value = 0x000000003d4d3163
+--PTLookup: paddr = 0x000000003d4d3968
+--V2P cache set 0xffffffffa0133968 -- 0x000000003d4d3968 (0x0000000001a85000/0xffffffffa0133000)
+--MEMORY cache set 0x3d4d3000
+--V2P cache hit 0xffffffffa0133978 -- 0x000000003d4d3978 (0x0000000001a85000/0xffffffffa0133000)
+--MEMORY cache hit 0x3d4d3000
+--MEMORY cache hit 0x3d4d3000
+i2c_piix4
+amd64--PTLookup: lookup vaddr = 0xffffffffa024c0c8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902260, pte_value = 0x00000000379ce163
+--PTLookup: paddr = 0x00000000379ce0c8
+--V2P cache set 0xffffffffa024c0c8 -- 0x00000000379ce0c8 (0x0000000001a85000/0xffffffffa024c000)
+--MEMORY cache set 0x379ce000
+--V2P cache hit 0xffffffffa024c0d8 -- 0x00000000379ce0d8 (0x0000000001a85000/0xffffffffa024c000)
+--MEMORY cache hit 0x379ce000
+--MEMORY cache hit 0x379ce000
+snd_intel8x0
+amd64--PTLookup: lookup vaddr = 0xffffffffa02369a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b9021b0, pte_value = 0x0000000037aee163
+--PTLookup: paddr = 0x0000000037aee9a8
+--V2P cache set 0xffffffffa02369a8 -- 0x0000000037aee9a8 (0x0000000001a85000/0xffffffffa0236000)
+--MEMORY cache set 0x37aee000
+--V2P cache hit 0xffffffffa02369b8 -- 0x0000000037aee9b8 (0x0000000001a85000/0xffffffffa0236000)
+--MEMORY cache hit 0x37aee000
+--MEMORY cache hit 0x37aee000
+snd_ac97_codec
+amd64--PTLookup: lookup vaddr = 0xffffffffa001d1a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b60e8, pte_value = 0x0000000037984163
+--PTLookup: paddr = 0x00000000379841a8
+--V2P cache set 0xffffffffa001d1a8 -- 0x00000000379841a8 (0x0000000001a85000/0xffffffffa001d000)
+--MEMORY cache set 0x37984000
+--V2P cache hit 0xffffffffa001d1b8 -- 0x00000000379841b8 (0x0000000001a85000/0xffffffffa001d000)
+--MEMORY cache hit 0x37984000
+--MEMORY cache hit 0x37984000
+ac97_bus
+amd64--PTLookup: lookup vaddr = 0xffffffffa0212f88
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b808, pde_value= 0x000000003b902067
+--MEMORY cache hit 0x3b902000
+--PTLookup: pte_address = 0x000000003b902090, pte_value = 0x000000003c429163
+--PTLookup: paddr = 0x000000003c429f88
+--V2P cache set 0xffffffffa0212f88 -- 0x000000003c429f88 (0x0000000001a85000/0xffffffffa0212000)
+--MEMORY cache set 0x3c429000
+--V2P cache hit 0xffffffffa0212f98 -- 0x000000003c429f98 (0x0000000001a85000/0xffffffffa0212000)
+--MEMORY cache hit 0x3c429000
+--MEMORY cache hit 0x3c429000
+snd_seq
+amd64--PTLookup: lookup vaddr = 0xffffffffa0032e68
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6190, pte_value = 0x000000003c907163
+--PTLookup: paddr = 0x000000003c907e68
+--V2P cache set 0xffffffffa0032e68 -- 0x000000003c907e68 (0x0000000001a85000/0xffffffffa0032000)
+--MEMORY cache set 0x3c907000
+--V2P cache hit 0xffffffffa0032e78 -- 0x000000003c907e78 (0x0000000001a85000/0xffffffffa0032000)
+--MEMORY cache hit 0x3c907000
+--MEMORY cache hit 0x3c907000
+snd_seq_device
+amd64--PTLookup: lookup vaddr = 0xffffffffa019aaa8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6cd0, pte_value = 0x000000003cc63163
+--PTLookup: paddr = 0x000000003cc63aa8
+--V2P cache set 0xffffffffa019aaa8 -- 0x000000003cc63aa8 (0x0000000001a85000/0xffffffffa019a000)
+--MEMORY cache set 0x3cc63000
+--V2P cache hit 0xffffffffa019aab8 -- 0x000000003cc63ab8 (0x0000000001a85000/0xffffffffa019a000)
+--MEMORY cache hit 0x3cc63000
+--MEMORY cache hit 0x3cc63000
+snd_pcm
+amd64--PTLookup: lookup vaddr = 0xffffffffa0094248
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b64a0, pte_value = 0x000000003dbdf163
+--PTLookup: paddr = 0x000000003dbdf248
+--V2P cache set 0xffffffffa0094248 -- 0x000000003dbdf248 (0x0000000001a85000/0xffffffffa0094000)
+--MEMORY cache set 0x3dbdf000
+--V2P cache hit 0xffffffffa0094258 -- 0x000000003dbdf258 (0x0000000001a85000/0xffffffffa0094000)
+--MEMORY cache hit 0x3dbdf000
+--MEMORY cache hit 0x3dbdf000
+snd_timer
+amd64--PTLookup: lookup vaddr = 0xffffffffa0128b68
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6940, pte_value = 0x0000000037b7a163
+--PTLookup: paddr = 0x0000000037b7ab68
+--V2P cache set 0xffffffffa0128b68 -- 0x0000000037b7ab68 (0x0000000001a85000/0xffffffffa0128000)
+--MEMORY cache set 0x37b7a000
+--V2P cache hit 0xffffffffa0128b78 -- 0x0000000037b7ab78 (0x0000000001a85000/0xffffffffa0128000)
+--MEMORY cache hit 0x37b7a000
+--MEMORY cache hit 0x37b7a000
+snd
+amd64--PTLookup: lookup vaddr = 0xffffffffa0024188
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6120, pte_value = 0x000000003e010163
+--PTLookup: paddr = 0x000000003e010188
+--V2P cache set 0xffffffffa0024188 -- 0x000000003e010188 (0x0000000001a85000/0xffffffffa0024000)
+--MEMORY cache set 0x3e010000
+--V2P cache hit 0xffffffffa0024198 -- 0x000000003e010198 (0x0000000001a85000/0xffffffffa0024000)
+--MEMORY cache hit 0x3e010000
+--MEMORY cache hit 0x3e010000
+soundcore
+amd64--PTLookup: lookup vaddr = 0xffffffffa0017728
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b60b8, pte_value = 0x0000000037acf163
+--PTLookup: paddr = 0x0000000037acf728
+--V2P cache set 0xffffffffa0017728 -- 0x0000000037acf728 (0x0000000001a85000/0xffffffffa0017000)
+--MEMORY cache set 0x37acf000
+--V2P cache hit 0xffffffffa0017738 -- 0x0000000037acf738 (0x0000000001a85000/0xffffffffa0017000)
+--MEMORY cache hit 0x37acf000
+--MEMORY cache hit 0x37acf000
+snd_page_alloc
+amd64--PTLookup: lookup vaddr = 0xffffffffa01caec8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6e50, pte_value = 0x000000003d45f163
+--PTLookup: paddr = 0x000000003d45fec8
+--V2P cache set 0xffffffffa01caec8 -- 0x000000003d45fec8 (0x0000000001a85000/0xffffffffa01ca000)
+--MEMORY cache set 0x3d45f000
+--V2P cache hit 0xffffffffa01caed8 -- 0x000000003d45fed8 (0x0000000001a85000/0xffffffffa01ca000)
+--MEMORY cache hit 0x3d45f000
+--MEMORY cache hit 0x3d45f000
+vboxguest
+amd64--PTLookup: lookup vaddr = 0xffffffffa01a44c8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6d20, pte_value = 0x000000003d6b6163
+--PTLookup: paddr = 0x000000003d6b64c8
+--V2P cache set 0xffffffffa01a44c8 -- 0x000000003d6b64c8 (0x0000000001a85000/0xffffffffa01a4000)
+--MEMORY cache set 0x3d6b6000
+--V2P cache hit 0xffffffffa01a44d8 -- 0x000000003d6b64d8 (0x0000000001a85000/0xffffffffa01a4000)
+--MEMORY cache hit 0x3d6b6000
+--MEMORY cache hit 0x3d6b6000
+vboxvideo
+amd64--PTLookup: lookup vaddr = 0xffffffffa0177148
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6bb8, pte_value = 0x000000003d4d9163
+--PTLookup: paddr = 0x000000003d4d9148
+--V2P cache set 0xffffffffa0177148 -- 0x000000003d4d9148 (0x0000000001a85000/0xffffffffa0177000)
+--MEMORY cache set 0x3d4d9000
+--V2P cache hit 0xffffffffa0177158 -- 0x000000003d4d9158 (0x0000000001a85000/0xffffffffa0177000)
+--MEMORY cache hit 0x3d4d9000
+--MEMORY cache hit 0x3d4d9000
+drm
+amd64--PTLookup: lookup vaddr = 0xffffffffa013c028
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b69e0, pte_value = 0x0000000037a63163
+--PTLookup: paddr = 0x0000000037a63028
+--V2P cache set 0xffffffffa013c028 -- 0x0000000037a63028 (0x0000000001a85000/0xffffffffa013c000)
+--MEMORY cache set 0x37a63000
+--V2P cache hit 0xffffffffa013c038 -- 0x0000000037a63038 (0x0000000001a85000/0xffffffffa013c000)
+--MEMORY cache hit 0x37a63000
+--MEMORY cache hit 0x37a63000
+i2c_core
+amd64--PTLookup: lookup vaddr = 0xffffffffa010d088
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6868, pte_value = 0x0000000037e5d163
+--PTLookup: paddr = 0x0000000037e5d088
+--V2P cache set 0xffffffffa010d088 -- 0x0000000037e5d088 (0x0000000001a85000/0xffffffffa010d000)
+--MEMORY cache set 0x37e5d000
+--V2P cache hit 0xffffffffa010d098 -- 0x0000000037e5d098 (0x0000000001a85000/0xffffffffa010d000)
+--MEMORY cache hit 0x37e5d000
+--MEMORY cache hit 0x37e5d000
+ext4
+amd64--PTLookup: lookup vaddr = 0xffffffffa00af3a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6578, pte_value = 0x0000000037c9f163
+--PTLookup: paddr = 0x0000000037c9f3a8
+--V2P cache set 0xffffffffa00af3a8 -- 0x0000000037c9f3a8 (0x0000000001a85000/0xffffffffa00af000)
+--MEMORY cache set 0x37c9f000
+--V2P cache hit 0xffffffffa00af3b8 -- 0x0000000037c9f3b8 (0x0000000001a85000/0xffffffffa00af000)
+--MEMORY cache hit 0x37c9f000
+--MEMORY cache hit 0x37c9f000
+jbd2
+amd64--PTLookup: lookup vaddr = 0xffffffffa0099348
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b64c8, pte_value = 0x0000000037d9c163
+--PTLookup: paddr = 0x0000000037d9c348
+--V2P cache set 0xffffffffa0099348 -- 0x0000000037d9c348 (0x0000000001a85000/0xffffffffa0099000)
+--MEMORY cache set 0x37d9c000
+--V2P cache hit 0xffffffffa0099358 -- 0x0000000037d9c358 (0x0000000001a85000/0xffffffffa0099000)
+--MEMORY cache hit 0x37d9c000
+--MEMORY cache hit 0x37d9c000
+mbcache
+amd64--PTLookup: lookup vaddr = 0xffffffffa008d748
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6468, pte_value = 0x0000000037cb9163
+--PTLookup: paddr = 0x0000000037cb9748
+--V2P cache set 0xffffffffa008d748 -- 0x0000000037cb9748 (0x0000000001a85000/0xffffffffa008d000)
+--MEMORY cache set 0x37cb9000
+--V2P cache hit 0xffffffffa008d758 -- 0x0000000037cb9758 (0x0000000001a85000/0xffffffffa008d000)
+--MEMORY cache hit 0x37cb9000
+--MEMORY cache hit 0x37cb9000
+sd_mod
+amd64--PTLookup: lookup vaddr = 0xffffffffa00812a8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6408, pte_value = 0x0000000037cce163
+--PTLookup: paddr = 0x0000000037cce2a8
+--V2P cache set 0xffffffffa00812a8 -- 0x0000000037cce2a8 (0x0000000001a85000/0xffffffffa0081000)
+--MEMORY cache set 0x37cce000
+--V2P cache hit 0xffffffffa00812b8 -- 0x0000000037cce2b8 (0x0000000001a85000/0xffffffffa0081000)
+--MEMORY cache hit 0x37cce000
+--MEMORY cache hit 0x37cce000
+crc_t10dif
+amd64--PTLookup: lookup vaddr = 0xffffffffa007c1c8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b63e0, pte_value = 0x0000000037cc2163
+--PTLookup: paddr = 0x0000000037cc21c8
+--V2P cache set 0xffffffffa007c1c8 -- 0x0000000037cc21c8 (0x0000000001a85000/0xffffffffa007c000)
+--MEMORY cache set 0x37cc2000
+--V2P cache hit 0xffffffffa007c1d8 -- 0x0000000037cc21d8 (0x0000000001a85000/0xffffffffa007c000)
+--MEMORY cache hit 0x37cc2000
+--MEMORY cache hit 0x37cc2000
+sr_mod
+amd64--PTLookup: lookup vaddr = 0xffffffffa0071c48
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6388, pte_value = 0x0000000037c4c163
+--PTLookup: paddr = 0x0000000037c4cc48
+--V2P cache set 0xffffffffa0071c48 -- 0x0000000037c4cc48 (0x0000000001a85000/0xffffffffa0071000)
+--MEMORY cache set 0x37c4c000
+--V2P cache hit 0xffffffffa0071c58 -- 0x0000000037c4cc58 (0x0000000001a85000/0xffffffffa0071000)
+--MEMORY cache hit 0x37c4c000
+--MEMORY cache hit 0x37c4c000
+cdrom
+amd64--PTLookup: lookup vaddr = 0xffffffffa0062da8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6310, pte_value = 0x0000000037bbc163
+--PTLookup: paddr = 0x0000000037bbcda8
+--V2P cache set 0xffffffffa0062da8 -- 0x0000000037bbcda8 (0x0000000001a85000/0xffffffffa0062000)
+--MEMORY cache set 0x37bbc000
+--V2P cache hit 0xffffffffa0062db8 -- 0x0000000037bbcdb8 (0x0000000001a85000/0xffffffffa0062000)
+--MEMORY cache hit 0x37bbc000
+--MEMORY cache hit 0x37bbc000
+video
+amd64--PTLookup: lookup vaddr = 0xffffffffa005b3c8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b62d8, pte_value = 0x0000000037c89163
+--PTLookup: paddr = 0x0000000037c893c8
+--V2P cache set 0xffffffffa005b3c8 -- 0x0000000037c893c8 (0x0000000001a85000/0xffffffffa005b000)
+--MEMORY cache set 0x37c89000
+--V2P cache hit 0xffffffffa005b3d8 -- 0x0000000037c893d8 (0x0000000001a85000/0xffffffffa005b000)
+--MEMORY cache hit 0x37c89000
+--MEMORY cache hit 0x37c89000
+output
+amd64--PTLookup: lookup vaddr = 0xffffffffa0052308
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6290, pte_value = 0x0000000037c1d163
+--PTLookup: paddr = 0x0000000037c1d308
+--V2P cache set 0xffffffffa0052308 -- 0x0000000037c1d308 (0x0000000001a85000/0xffffffffa0052000)
+--MEMORY cache set 0x37c1d000
+--V2P cache hit 0xffffffffa0052318 -- 0x0000000037c1d318 (0x0000000001a85000/0xffffffffa0052000)
+--MEMORY cache hit 0x37c1d000
+--MEMORY cache hit 0x37c1d000
+ahci
+amd64--PTLookup: lookup vaddr = 0xffffffffa0045948
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6228, pte_value = 0x0000000037aa9163
+--PTLookup: paddr = 0x0000000037aa9948
+--V2P cache set 0xffffffffa0045948 -- 0x0000000037aa9948 (0x0000000001a85000/0xffffffffa0045000)
+--MEMORY cache set 0x37aa9000
+--V2P cache hit 0xffffffffa0045958 -- 0x0000000037aa9958 (0x0000000001a85000/0xffffffffa0045000)
+--MEMORY cache hit 0x37aa9000
+--MEMORY cache hit 0x37aa9000
+pata_acpi
+amd64--PTLookup: lookup vaddr = 0xffffffffa0041a48
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6208, pte_value = 0x0000000037a9f163
+--PTLookup: paddr = 0x0000000037a9fa48
+--V2P cache set 0xffffffffa0041a48 -- 0x0000000037a9fa48 (0x0000000001a85000/0xffffffffa0041000)
+--MEMORY cache set 0x37a9f000
+--V2P cache hit 0xffffffffa0041a58 -- 0x0000000037a9fa58 (0x0000000001a85000/0xffffffffa0041000)
+--MEMORY cache hit 0x37a9f000
+--MEMORY cache hit 0x37a9f000
+ata_generic
+amd64--PTLookup: lookup vaddr = 0xffffffffa003a5e8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b61d0, pte_value = 0x0000000037ac9163
+--PTLookup: paddr = 0x0000000037ac95e8
+--V2P cache set 0xffffffffa003a5e8 -- 0x0000000037ac95e8 (0x0000000001a85000/0xffffffffa003a000)
+--MEMORY cache set 0x37ac9000
+--V2P cache hit 0xffffffffa003a5f8 -- 0x0000000037ac95f8 (0x0000000001a85000/0xffffffffa003a000)
+--MEMORY cache hit 0x37ac9000
+--MEMORY cache hit 0x37ac9000
+ata_piix
+amd64--PTLookup: lookup vaddr = 0xffffffffa0030008
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6180, pte_value = 0x0000000037981163
+--PTLookup: paddr = 0x0000000037981008
+--V2P cache set 0xffffffffa0030008 -- 0x0000000037981008 (0x0000000001a85000/0xffffffffa0030000)
+--MEMORY cache set 0x37981000
+--V2P cache hit 0xffffffffa0030018 -- 0x0000000037981018 (0x0000000001a85000/0xffffffffa0030000)
+--MEMORY cache hit 0x37981000
+--MEMORY cache hit 0x37981000
+dm_mirror
+amd64--PTLookup: lookup vaddr = 0xffffffffa0027948
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6138, pte_value = 0x0000000037997163
+--PTLookup: paddr = 0x0000000037997948
+--V2P cache set 0xffffffffa0027948 -- 0x0000000037997948 (0x0000000001a85000/0xffffffffa0027000)
+--MEMORY cache set 0x37997000
+--V2P cache hit 0xffffffffa0027958 -- 0x0000000037997958 (0x0000000001a85000/0xffffffffa0027000)
+--MEMORY cache hit 0x37997000
+--MEMORY cache hit 0x37997000
+dm_region_hash
+amd64--PTLookup: lookup vaddr = 0xffffffffa0020c68
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6100, pte_value = 0x00000000379b8163
+--PTLookup: paddr = 0x00000000379b8c68
+--V2P cache set 0xffffffffa0020c68 -- 0x00000000379b8c68 (0x0000000001a85000/0xffffffffa0020000)
+--MEMORY cache set 0x379b8000
+--V2P cache hit 0xffffffffa0020c78 -- 0x00000000379b8c78 (0x0000000001a85000/0xffffffffa0020000)
+--MEMORY cache hit 0x379b8000
+--MEMORY cache hit 0x379b8000
+dm_log
+amd64--PTLookup: lookup vaddr = 0xffffffffa000f3e8
+--PTLookup: dtb = 0x0000000001a85000
+--MEMORY cache hit 0x1a85000
+--PTLookup: pml4e_address = 0x0000000001a85ff8
+ASM--PTLookup: pml4e_value = 0x0000000001a87067
+--MEMORY cache hit 0x1a87000
+--PTLookup: pdpte_address = 0x0000000001a87ff0, pdpte_value = 0x0000000001a8b063
+--MEMORY cache hit 0x1a8b000
+--PTLookup: pde_address = 0x0000000001a8b800, pde_value= 0x00000000379b6067
+--MEMORY cache hit 0x379b6000
+--PTLookup: pte_address = 0x00000000379b6078, pte_value = 0x00000000379b0163
+--PTLookup: paddr = 0x00000000379b03e8
+--V2P cache set 0xffffffffa000f3e8 -- 0x00000000379b03e8 (0x0000000001a85000/0xffffffffa000f000)
+--MEMORY cache set 0x379b0000
+--V2P cache hit 0xffffffffa000f3f8 -- 0x00000000379b03f8 (0x0000000001a85000/0xffffffffa000f000)
+--MEMORY cache hit 0x379b0000
+--MEMORY cache hit 0x379b0000
+dm_mod
+--V2P cache hit 0xffffffff81aa8090 -- 0x0000000001aa8090 (0x0000000001a85000/0xffffffff81aa8000)
+--MEMORY cache hit 0x1aa8000
+--MEMORY cache hit 0x1aa8000

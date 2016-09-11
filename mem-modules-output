@@ -1,0 +1,13 @@
+Token: modules, addr: 0x81aa8090, at line:47700
+FAILED...to retrive symbol for swapper_pg_dir
+This is a 64bit m/c
+Token: init_level4_pgt, addr: 0x81a85000, at line:46531
+Token: phys_startup_64, addr: 0x1000000, at line:222
+Token: startup_64, addr: 0x81000000, at line:224
+boundary = 0x80000000, kpgd = 0x1a85000
+pagetable_lookup for va: 0x0000000081000000
+PML4E Address:0x0000000001a85ff8, Value:0x0000000001a87067
+PDPTE Address:0x0000000001a87ff0, Value:0x0000000001a8b063
+PDE Address:0x0000000001a8b040, Value:0x00000000010001e1
+Pages are 2MB in size
+Physical Address:0x0000000001000000

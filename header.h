@@ -6,11 +6,18 @@ typedef unsigned long addr_t;
 #define BIT32 0
 #define BIT64 1
 
+// 2MB Page Size
+#define PS_2MB 0x200000ULL 
+#define GET_BIT(reg, bit) (!!(reg & (1ULL<<bit)))
+#define PAGE_SIZE(entry)        GET_BIT(entry, 7)
+
+
 typedef struct {
-	int bits;
-	FILE *fd;
-	FILE *dump;
-	addr_t kpgd;
+	int 	bits;
+	FILE 	*fd;
+	FILE 	*dump;
+	addr_t 	kpgd;
+	int		pageSize;
 
 	// Page Table info
 	addr_t pte_location;

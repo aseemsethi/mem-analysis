@@ -17,7 +17,7 @@ int get_symbol_row(char* symbol, addr_t* val) {
 
 	if (arch.fd == NULL) {
 		arch.fd = fopen("/boot/System.map-2.6.32-431.el6.x86_64", "r");
-		printf("\n FD for System.map file = %d", arch.fd);
+		//printf("\n FD for System.map file = %d", arch.fd);
 	}
 	f = arch.fd;
     pos = fseek(arch.fd, 0, SEEK_SET);

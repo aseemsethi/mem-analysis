@@ -1,1 +1,9 @@
 This is an attempt to understand LibVMI, by writing some parts of it myself to get a basic understanding of Page Table and how one can read a Memory Dump from /dev/fmem for just 1 architecture, i.e. X86-64.
+
+Look at the ouput of the following 2 files, showing the same results.
+Run, using the libvmi module-list example on the dump1g memory dump of 
+a 64 bit Linux VM
+-rw-rw-r-- 1 asethi asethi      59982 Sep 10 22:42 module-list-output
+Output run using the "mem" executable on the same dump1g memory dump.
+-rw-rw-r-- 1 asethi asethi        589 Sep 10 22:42 mem-modules-output
+
