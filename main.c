@@ -5,22 +5,6 @@
 
 arch_t arch;
 
-/*
-With IA-32e paging, each paging structure comprises 512 = 29 entries and
-translation uses 9 bits at a time from 48-bit linear address.
-Bits 47:39 identify the first paging-structure entry,
-bits 38:30 identify a second, bits 29:21 a third,
-and bits 20:12 identify a fourth.
-Again, the last identifies the page frame. (See
-Figure 4-8 for an illustration.)
-
-If more than 12 bits remain in the linear address, bit 7 (PS — page size)
-of the current paging-structure entry is consulted.
-- If the bit is 0, the entry references another paging structure;
-- if the bit is 1, the entry maps a page. 
-If only 12 bits remain in the linear address, the current paging-structure
-entry always maps a page (bit 7 is used for other purposes).
-*/
 
 // Right shit 0xFFFFFFFFFFFFFFFF by (63-b) and then zero out (a) LSB bits
 #define BIT_MASK(a, b) (((unsigned long long) -1 >> (63 - (b))) & ~((1ULL << (a)) - 1))
@@ -163,6 +147,11 @@ done:
 	printf("Physical Address:0x%.16x\n", paddr);
 }
 
+int loadProcesses() {
+	printf("Need to get task_struct\n");
+
+}
+
 int loadPTValues () {
 	addr_t va_init_level4_pgt, va_phys_startup_64, va_startup_64;
 	addr_t boundary, va_swapper_pg_dir, paddr;
@@ -192,14 +181,15 @@ int loadPTValues () {
 }
 
 /*
- * Invoke as ./mem <dump file>
+ * Invoke as ./mem <dump file> pagetables
  */
 main(int argc, char **argv) {
 	addr_t va;
 	int ret;
 
-	if (argc != 2) {
-		printf("Enter memory dump file");
+	if (argc != 3) {
+		printf("Enter memory dump file and command\n");
+		return;
 	}
 
 	arch.fd = NULL;
@@ -208,5 +198,13 @@ main(int argc, char **argv) {
 		perror("Cannot open dump file");
 		return;
 	}
-	loadPTValues();
+	if (strcmp("pagetables", argv[2]) == 0) {
+		loadPTValues();
+	} else if (strcmp("processes", argv[2]) == 0) {
+		loadProcesses();	
+	} else {
+		printf("..Invalid Command: %s\n", argv[2]);
+		printf("Valid Commands: ");
+		printf("pagetables, processes\n");
+	}
 }

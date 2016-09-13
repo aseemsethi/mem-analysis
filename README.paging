@@ -1,0 +1,35 @@
+There are three paging modes:
+ - 32-bit paging;
+ - PAE paging;
+ - IA-32e paging.
+To enable the IA-32e paging paging mode we need to do following things:
+ - set the CR0.PG bit;
+ - set the CR4.PAE bit;
+ - set the IA32_EFER.LME bit.
+
+CR3 
+ A 4-KByte naturally aligned PML4 table is located at the physical address
+ specified in bits 51:12 of CR3. A PML4 table comprises 512 64-
+ bit entries (PML4Es). A PML4E is selected using physical address defined as
+ follows:
+ — Bits 51:12 are from CR3.
+ — Bits 11:3 are bits 47:39 of the linear address.
+ — Bits 2:0 are all 0.
+ Because a PML4E is identified using bits 47:39 of the linear address,
+ it controls access to a 512-GByte region of the linear-address space.
+ Ref: Intel 64 and IA-32 Architectures, Software Developer’s Manual
+      Volume 3A: System Programming Guide, Part 1
+
+With IA-32e paging, each paging structure comprises 512 = 29 entries and
+translation uses 9 bits at a time from 48-bit linear address.
+Bits 47:39 identify the first paging-structure entry,
+bits 38:30 identify a second, bits 29:21 a third,
+and bits 20:12 identify a fourth.
+The last bits identify the page frame.
+
+If more than 12 bits remain in the linear address, bit 7 (PS — page size)
+of the current paging-structure entry is consulted.
+- If the bit is 0, the entry references another paging structure;
+- if the bit is 1, the entry maps a page. 
+If only 12 bits remain in the linear address, the current paging-structure
+entry always maps a page (bit 7 is used for other purposes).
