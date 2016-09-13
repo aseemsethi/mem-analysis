@@ -27,13 +27,14 @@ addr_t get_pt_index_ia32e (addr_t vaddr) {
 
 
 int memRead (addr_t *address, addr_t *value) {
-	addr_t			tmp = 0;
 	addr_t			va_temp;
 	addr_t			*buff;
+	int 			ret;
 
 	buff = malloc(8);
-    if (tmp != fseek(arch.dump, *address, SEEK_SET)) {
-		printf("fseek returned %ld, vs %ld\n", tmp, *address);
+	printf("memRead Mem Dump at Phys Address:%x\n", *address);
+    ret = fseek(arch.dump, *address, SEEK_SET);
+    if (ret != 0) {
 		perror("\n Error in get_pgd seek");
 		return FAILURE;
     }
@@ -144,11 +145,49 @@ int pagetable_lookup (addr_t kpgd, addr_t va, addr_t *phys_addr) {
 	if (ret == FAILURE) return ret;
     paddr = get_paddr_ia32e (va, arch.pte_value);
 done:
+	*phys_addr = paddr;
 	printf("Physical Address:0x%.16x\n", paddr);
 }
 
 int loadProcesses() {
-	printf("Need to get task_struct\n");
+	addr_t va_init_task;
+	addr_t va;
+    addr_t list_head = 0, next_list_entry = 0;
+    addr_t current_process = 0, pid_offset;
+	addr_t phys_addr;
+	unsigned long pid = 0;
+	int ret = 0, counter = 0;
+/*
+ * init_task or swapper process is not shown in "ps" listing, but can be
+ * got by searching for init_task in the task list.
+ */
+	printf("Load processes from task_struct\n");
+	ret = get_symbol_row("init_task", &va_init_task);
+	list_head = va_init_task + arch.tasks_offset;
+    next_list_entry = list_head;
+
+	do {
+		current_process = next_list_entry - arch.tasks_offset;
+		printf("-------------------------------------------------\n");
+		printf("Current Process VA :0x%x\n", current_process);
+		pid_offset = current_process+arch.pid_offset;
+		// We need to get Phys Mem for this VA
+		// Since kpgd is set, we go thru the Page Tables, and not 
+		// boundary mapping.
+		ret = pagetable_lookup(arch.kpgd, pid_offset, &phys_addr);
+		memRead(&phys_addr, &pid);
+		//printf("Process VA Address:0x%x, PID VA Offset: %x\n",
+		//	current_process, pid_offset);
+		printf("Phys Address: %x, PID: %x\n", phys_addr, pid);
+		// To loop again, look at the contents of next_list_entry.
+		// At this point the VA of the next next_list_entry in linked-list
+		// will be found.
+		printf("--------------------------------------------------\n");
+		printf("VA of next_list_entry .......: %x, ", next_list_entry);
+		ret = pagetable_lookup(arch.kpgd, next_list_entry, &va);
+		printf(".......is: %x\n", va);
+		memRead(&va, &next_list_entry);
+	} while (counter++ < 1);
 
 }
 
@@ -181,6 +220,15 @@ int loadPTValues () {
 }
 
 /*
+ * TBD: Use the jsmn parser
+ */
+readConfig() {
+
+	arch.tasks_offset = 0x448;  // offset of tasks in task_struct in sched.h
+	arch.pid_offset = 0x4a8;  // offset of PID
+}
+
+/*
  * Invoke as ./mem <dump file> pagetables
  */
 main(int argc, char **argv) {
@@ -198,9 +246,13 @@ main(int argc, char **argv) {
 		perror("Cannot open dump file");
 		return;
 	}
+	printf("Mem Dump file opened: %x\n", arch.dump);
+	readConfig();
+
 	if (strcmp("pagetables", argv[2]) == 0) {
 		loadPTValues();
 	} else if (strcmp("processes", argv[2]) == 0) {
+		loadPTValues();
 		loadProcesses();	
 	} else {
 		printf("..Invalid Command: %s\n", argv[2]);

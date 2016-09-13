@@ -1,3 +1,4 @@
+$ ./mem dump1g pagetables
 Token: modules, addr: 0x81aa8090, at line:47700
 FAILED...to retrive symbol for swapper_pg_dir
 This is a 64bit m/c

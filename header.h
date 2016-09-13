@@ -18,6 +18,8 @@ typedef struct {
 	FILE 	*dump;
 	addr_t 	kpgd;
 	int		pageSize;
+	unsigned long tasks_offset;
+	unsigned long pid_offset;
 
 	// Page Table info
 	addr_t pte_location;
