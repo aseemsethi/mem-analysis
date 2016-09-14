@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "header.h"
+#include "log.h"
 
 extern arch_t arch;
 
@@ -58,7 +59,7 @@ int get_symbol_row(char* symbol, addr_t* val) {
         if (strncmp(token, symbol, 200) == 0) {
 			va = (addr_t) strtoull(row, NULL, 16);
 			*val = va;
-			printf("Token: %s, addr: 0x%x, at line:%d\n", symbol, va, index);
+			log_info(stdout, "Token: %s, addr: 0x%x, at line:%d", symbol, va, index);
             ret = SUCCESS;
             break;
         }
@@ -66,7 +67,7 @@ int get_symbol_row(char* symbol, addr_t* val) {
 
 error_exit:
     if (ret == FAILURE) {
-		printf("FAILED...to retrive symbol for %s\n", symbol);
+		printf("FAILED...to retrive symbol for %s", symbol);
         memset(row, 0, 200);
     }
     return ret;

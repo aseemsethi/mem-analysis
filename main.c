@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include "header.h"
+#include "log.h"
 
 // If CR0.PG = 1, CR4.PAE = 1, and IA32_EFER.LME = 1, IA-32e paging is used.
 
+int log_level = AS_LOG_INFO;
 arch_t arch;
 
 
@@ -25,6 +27,21 @@ addr_t get_pd_index_ia32e (addr_t vaddr) {
 addr_t get_pt_index_ia32e (addr_t vaddr) {
     return (vaddr & BIT_MASK(12,20)) >> 9; }
 
+int strRead (addr_t *address, char *buff) {
+	addr_t			va_temp;
+	int 			ret;
+
+	log_debug(stdout, "strRead Mem Dump at Phys Address:%x", *address);
+    ret = fseek(arch.dump, *address, SEEK_SET);
+    if (ret != 0) {
+		perror("Error in get_pgd seek");
+		return FAILURE;
+    }
+	if (100 != fread(buff, 1, 100, arch.dump)) {
+		perror("Error in get_pgd read");
+		return FAILURE;
+	}
+}
 
 int memRead (addr_t *address, addr_t *value) {
 	addr_t			va_temp;
@@ -32,14 +49,14 @@ int memRead (addr_t *address, addr_t *value) {
 	int 			ret;
 
 	buff = malloc(8);
-	printf("memRead Mem Dump at Phys Address:%x\n", *address);
+	log_debug(stdout, "memRead Mem Dump at Phys Address:%x", *address);
     ret = fseek(arch.dump, *address, SEEK_SET);
     if (ret != 0) {
-		perror("\n Error in get_pgd seek");
+		perror("Error in get_pgd seek");
 		return FAILURE;
     }
 	if (8 != fread(buff, 1, 8, arch.dump)) {
-		perror("\n Error in get_pgd read");
+		perror("Error in get_pgd read");
 		return FAILURE;
 	}
 	*value = *buff;
@@ -56,7 +73,7 @@ int get_pml4e_ia32e (addr_t va, addr_t kpgd,
 	// calls vm_read() with the CR3 value set to 0, so that the main mem, which
 	// is file in our case, is read directly as physical mem.
 	memRead(pml4e_address, pml4e_value);
-	printf("PML4E Address:0x%.16x, Value:0x%.16x\n",
+	log_debug(stdout, "PML4E Address:0x%.16x, Value:0x%.16x",
 			*pml4e_address, *pml4e_value);
 	return SUCCESS;
 }
@@ -66,7 +83,7 @@ int get_pdpte_ia32e (addr_t vaddr, addr_t pml4e,
     *pdpte_value = 0;
     *pdpte_address = (pml4e & BIT_MASK(12,51))|get_pdpt_index_ia32e(vaddr);
 	memRead(pdpte_address, pdpte_value);
-	printf("PDPTE Address:0x%.16x, Value:0x%.16x\n",
+	log_debug(stdout, "PDPTE Address:0x%.16x, Value:0x%.16x",
 			*pdpte_address, *pdpte_value);
     return SUCCESS;
 }
@@ -77,7 +94,7 @@ int get_pde_ia32e (addr_t vaddr, addr_t pdpte,
     *pde_value = 0;
     *pde_address = (pdpte & BIT_MASK(12,51)) | get_pd_index_ia32e(vaddr);
 	memRead(pde_address, pde_value);
-	printf("PDE Address:0x%.16x, Value:0x%.16x\n",
+	log_debug(stdout, "PDE Address:0x%.16x, Value:0x%.16x",
 			*pde_address, *pde_value);
     return SUCCESS;
 }
@@ -88,7 +105,7 @@ int get_pte_ia32e (addr_t vaddr, addr_t pde,
     *pte_value = 0;
     *pte_address = (pde & BIT_MASK(12,51)) | get_pt_index_ia32e(vaddr);
 	memRead(pte_address, pte_value);
-	printf("PTE Address:0x%.16x, Value:0x%.16x\n",
+	log_debug(stdout, "PTE Address:0x%.16x, Value:0x%.16x",
 			*pte_address, *pte_value);
     return SUCCESS;
 }
@@ -120,7 +137,7 @@ int pagetable_lookup (addr_t kpgd, addr_t va, addr_t *phys_addr) {
 
 	// TBD: Checking for ENTRY_PRESENT is not being done to keep the code 
 	// clearer. 
-	printf("pagetable_lookup for va: 0x%.16x\n", va);
+	log_debug(stdout, "pagetable_lookup for va: 0x%.16x", va);
 	ret = get_pml4e_ia32e   (va, kpgd, 
 							&arch.pml4e_location, &arch.pml4e_value);
 	if (ret == FAILURE) return ret;
@@ -134,7 +151,7 @@ int pagetable_lookup (addr_t kpgd, addr_t va, addr_t *phys_addr) {
 	// then we have 21 bits of page offset.
 	// Page Directory 7th bit is used to check the page size
     if (PAGE_SIZE(arch.pgd_value)) { // pde maps a 2MB page
-		printf("Pages are 2MB in size\n");
+		log_debug(stdout, "Pages are 2MB in size");
 		arch.pageSize = PS_2MB;
 		paddr = (arch.pgd_value & BIT_MASK(21,51)) |
 				(va & BIT_MASK(0,20));
@@ -146,14 +163,14 @@ int pagetable_lookup (addr_t kpgd, addr_t va, addr_t *phys_addr) {
     paddr = get_paddr_ia32e (va, arch.pte_value);
 done:
 	*phys_addr = paddr;
-	printf("Physical Address:0x%.16x\n", paddr);
+	log_debug(stdout, "Physical Address:0x%.16x", paddr);
 }
 
 int loadProcesses() {
 	addr_t va_init_task;
 	addr_t va;
     addr_t list_head = 0, next_list_entry = 0;
-    addr_t current_process = 0, pid_offset;
+    addr_t current_process = 0, pid_offset, name_offset;
 	addr_t phys_addr;
 	unsigned long pid = 0;
 	int ret = 0, counter = 0;
@@ -161,33 +178,42 @@ int loadProcesses() {
  * init_task or swapper process is not shown in "ps" listing, but can be
  * got by searching for init_task in the task list.
  */
-	printf("Load processes from task_struct\n");
+	log_info(stdout, "Load processes from task_struct");
 	ret = get_symbol_row("init_task", &va_init_task);
 	list_head = va_init_task + arch.tasks_offset;
     next_list_entry = list_head;
 
 	do {
+		char* procname = malloc(100); // for Process Name read via strRead
+
 		current_process = next_list_entry - arch.tasks_offset;
-		printf("-------------------------------------------------\n");
-		printf("Current Process VA :0x%x\n", current_process);
+		log_debug(stdout, "Current Process VA :0x%x", current_process);
 		pid_offset = current_process+arch.pid_offset;
 		// We need to get Phys Mem for this VA
 		// Since kpgd is set, we go thru the Page Tables, and not 
 		// boundary mapping.
 		ret = pagetable_lookup(arch.kpgd, pid_offset, &phys_addr);
 		memRead(&phys_addr, &pid);
-		//printf("Process VA Address:0x%x, PID VA Offset: %x\n",
+		//log_debug(stdout, "Process VA Address:0x%x, PID VA Offset: %x",
 		//	current_process, pid_offset);
-		printf("Phys Address: %x, PID: %x\n", phys_addr, pid);
+
+		// Now get the Process Name
+		name_offset = current_process + arch.name_offset;
+		ret = pagetable_lookup(arch.kpgd, name_offset, &phys_addr);
+        ret = strRead(&phys_addr, procname);
+
+		// Output
+		log_info(stdout, "  [%d] Virt: %x, Phys: %x, PID: %d, Name: %s",
+				counter, current_process, phys_addr, pid, procname);
+
 		// To loop again, look at the contents of next_list_entry.
 		// At this point the VA of the next next_list_entry in linked-list
 		// will be found.
-		printf("--------------------------------------------------\n");
-		printf("VA of next_list_entry .......: %x, ", next_list_entry);
+		log_debug(stdout, "--------------------------------------------------");
 		ret = pagetable_lookup(arch.kpgd, next_list_entry, &va);
-		printf(".......is: %x\n", va);
 		memRead(&va, &next_list_entry);
-	} while (counter++ < 1);
+		log_debug(stdout, "VA of next_list_entry .......: %x, ", next_list_entry);
+	} while (next_list_entry != list_head);
 
 }
 
@@ -199,11 +225,11 @@ int loadPTValues () {
 
 	ret = get_symbol_row("swapper_pg_dir", &va_swapper_pg_dir);
 	if (ret == FAILURE) {
-		printf("This is a 64bit m/c\n");
+		log_info(stdout, "This is a 64bit m/c");
 		arch.bits = BIT64;
 		ret = get_symbol_row("init_level4_pgt", &va_init_level4_pgt);
 	} else {
-		printf("This is a 32bit m/c\n");
+		log_info(stdout, "This is a 32bit m/c");
 		arch.bits = BIT32;
 	}
 	// phys_startup = 0x1000000, which is 16 Megs
@@ -212,7 +238,7 @@ int loadPTValues () {
 	ret = get_symbol_row("startup_64", &va_startup_64);
 	boundary = va_startup_64 - va_phys_startup_64;
 	arch.kpgd = va_init_level4_pgt - boundary;
-	printf("boundary = 0x%x, kpgd = 0x%x\n", boundary, arch.kpgd);
+	log_debug(stdout, "boundary = 0x%x, kpgd = 0x%x", boundary, arch.kpgd);
 	// Sanity check - convert VA to PA using Page Tables
 	// Physical address for va_startup_64 should equal va_phys_startup_64
 	ret = pagetable_lookup(arch.kpgd, va_startup_64, &phys_addr);
@@ -223,9 +249,9 @@ int loadPTValues () {
  * TBD: Use the jsmn parser
  */
 readConfig() {
-
-	arch.tasks_offset = 0x448;  // offset of tasks in task_struct in sched.h
-	arch.pid_offset = 0x4a8;  // offset of PID
+	arch.tasks_offset = 0x448; // offset of tasks in task_struct in sched.h
+	arch.pid_offset = 0x4a8;   // offset of PID
+	arch.name_offset = 0x678;  // offset of Name
 }
 
 /*
@@ -236,7 +262,7 @@ main(int argc, char **argv) {
 	int ret;
 
 	if (argc != 3) {
-		printf("Enter memory dump file and command\n");
+		log_error(stdout, "Enter memory dump file and command");
 		return;
 	}
 
@@ -246,7 +272,7 @@ main(int argc, char **argv) {
 		perror("Cannot open dump file");
 		return;
 	}
-	printf("Mem Dump file opened: %x\n", arch.dump);
+	log_info(stdout, "Mem Dump file opened: %x", arch.dump);
 	readConfig();
 
 	if (strcmp("pagetables", argv[2]) == 0) {
@@ -255,8 +281,8 @@ main(int argc, char **argv) {
 		loadPTValues();
 		loadProcesses();	
 	} else {
-		printf("..Invalid Command: %s\n", argv[2]);
-		printf("Valid Commands: ");
-		printf("pagetables, processes\n");
+		log_error(stdout, "..Invalid Command: %s", argv[2]);
+		log_error(stdout, "Valid Commands: ");
+		log_error(stdout, "pagetables, processes");
 	}
 }

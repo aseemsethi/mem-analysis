@@ -20,6 +20,7 @@ typedef struct {
 	int		pageSize;
 	unsigned long tasks_offset;
 	unsigned long pid_offset;
+	unsigned long name_offset;
 
 	// Page Table info
 	addr_t pte_location;
