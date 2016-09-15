@@ -33,3 +33,13 @@ of the current paging-structure entry is consulted.
 - if the bit is 1, the entry maps a page. 
 If only 12 bits remain in the linear address, the current paging-structure
 entry always maps a page (bit 7 is used for other purposes).
+
+Address BITS
+Virtual Address: The AMD64 architecture defines a 64-bit virtual address format, of which the low-order 48 bits are used in current implementations.
+Physical Address: The original implementation of the AMD64 architecture implemented 40-bit physical addresses and so could address up to 1 TB (240 bytes) of RAM. Current implementations of the AMD64 architecture (starting from AMD 10h microarchitecture) extend this to 48-bit physical addresses and therefore can address up to 256 TB of RAM. 
+
+TLB
+Each cache entry stores the page number portion of a virtual address (36 bits for x86-64) and the corresponding physical page number (40 bits for x86-64).
+Typical TLB sizes: 64-2048 entries.
+On each memory reference, compare the page number from the virtual address with the virtual page numbers in every TLB entry (in parallel).
+If there is a match, use the corresponding physical page number.
